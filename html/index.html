@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>centdevs - Home</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <H1 class="title">Cent Devs</H1>
+        <div class="litlle-about">
+            <p class="something">This form will help in requesting account deletion, fill in the email of the account
+                you want deleted</p>
+        </div>
+        
+        <form id="form" action="submit" method="post">
+            <input type="text" placeholder="App Name" name="appname" id="appname">
+            <input type="text" placeholder="Email Address" name="email" id="email">
+            <div id="submit-btn">
+                <button type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        
+    </div>
+
+</body>
+
+<script>
+    function navToPage() {
+        window.location.href = '/about';
+    }
+</script>
+
+</html>
