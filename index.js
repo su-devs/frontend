@@ -8,8 +8,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 
-const port = 3000
-const mongoUri ='mongodb+srv://mbithi:sammy4991@cluster1.xrc8oqf.mongodb.net/?retryWrites=true&w=majority'// : process.env.MONGO_URL
+const port = process.env.PORT
+const mongoUri = process.env.MONGO_URL
+//const mongoUri ='mongodb+srv://mbithi:sammy4991@cluster1.xrc8oqf.mongodb.net/?retryWrites=true&w=majority'// : process.env.MONGO_URL
 
 
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
