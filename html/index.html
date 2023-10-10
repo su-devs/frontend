@@ -16,20 +16,37 @@
             <p class="something">This form will help in requesting account deletion, fill in the email of the account
                 you want deleted</p>
         </div>
-        
-        <form id="form" action="submit" method="post">
+
+        <form id="form" name="dfm" action="" method="post">
             <input type="text" placeholder="App Name" name="appname" id="appname">
             <input type="text" placeholder="Email Address" name="email" id="email">
             <div id="submit-btn">
-                <button type="submit">
+                <button type="submit" onclick="return validateForm()">
                     Submit
                 </button>
             </div>
         </form>
 
-        
+
     </div>
 
+    <script>
+        function clear() {
+            var name = document.getElementById('appname')
+            var email = document.getElementById('email')
+            name.reset()
+            email.reset()
+        }
+
+        function validateForm() {
+            var a = document.forms['dfm']['appname'].value
+            var b = document.forms['dfm']['email'].value
+            if(a == null || a == "" && b == null || b == ""){
+                alert('fill in all fields')
+                return false
+            }
+        }
+    </script>
 </body>
 
 <script>

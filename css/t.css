@@ -1,0 +1,31 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.content {
+    text-align: center;
+}
+
+.socials a {
+    color:darkolivegreen;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: chocolate;
+}
+
+.nav-back a {
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 50px;
+}

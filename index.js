@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const {MongoClient} = require('mongodb')
+const { MongoClient } = require('mongodb')
 var bodyParser = require('body-parser')
 
 const app = express()
@@ -8,8 +8,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 
-// const mongoUri = process.env.MONGO_URL
-const mongoUri = 'mongodb+srv://mbithi:sammy4991@cluster1.xrc8oqf.mongodb.net/?retryWrites=true&w=majority'
+const port = 3000
+const mongoUri ='mongodb+srv://mbithi:sammy4991@cluster1.xrc8oqf.mongodb.net/?retryWrites=true&w=majority'// : process.env.MONGO_URL
+
 
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -30,17 +31,17 @@ run().catch(console.error);
 async function insertData(a, e) {
     const database = client.db('deletions');
     const collection = database.collection('requests');
-  
+
     // Sample data to be inserted
     const data = {
-      appName: a,
-      emailAddress: e,
+        appName: a,
+        emailAddress: e,
     };
-  
+
     // Insert the data into the collection
     const result = await collection.insertOne(data);
     console.log(`Inserted ${result.insertedCount} document into the collection`);
-  }
+}
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -57,12 +58,15 @@ app.get('/about.html', (_req, _res) => {
 })
 
 
-app.post('/submit', (req, res) => {
+app.post('/', async (req, res) => {
     const formData = req.body;
     insertData(formData['appname'], formData['email'])
+    res.sendFile(path.join(__dirname, '/html/t.html'))
 });
 
 
-app.listen(3000, () => {
-    console.log('running on http://127.0.0.1:3000')
+app.listen(port, () => {
+    console.log('running on port 3000')
 })
+
+
